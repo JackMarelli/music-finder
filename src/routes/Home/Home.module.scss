@@ -1,0 +1,34 @@
+@import "../../styles/variables.scss";
+
+.videoContainer {
+  width: 100%;
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  &__overlay {
+    position: absolute;
+    bottom: -20vh;
+    left: 0;
+    right: 0;
+    height: 20vh;
+    background-image: linear-gradient(to bottom, transparent, $bgBlack);
+  }
+}
