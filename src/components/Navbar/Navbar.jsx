@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className={window.scrollY !== 0 && "scroll_zero"}>
-      <div className="nav__left">
-        <div className="font-xxl font-bold">Music Finder</div>
-        <Link to="/">Home</Link>
-        <a href="#">TV Shows</a>
-        <a href="#">Movies</a>
-        <a href="#">New & Popular</a>
-        <a href="#">Browse by Languages</a>
+    <nav className="sticky top-0 bg-deezer-black w-full h-fit py-5 border-b border-b-deezer-white">
+      <div className="container px-5 mx-auto flex justify-between items-center h-fit">
+        <div className="text-3xl uppercase text-deezer-white font-league">
+          Music Finder
+        </div>
+        <div>
+          <a
+            href="#"
+            className="bg-deezer-primary text-deezer-white text-sm py-2.5 px-5 font-bold rounded rounded-xl"
+          >
+            Menu
+          </a>
+        </div>
       </div>
     </nav>
   );
