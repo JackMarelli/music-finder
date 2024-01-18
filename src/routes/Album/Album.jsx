@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import BaseLayout from "../../layouts/Base/BaseLayout.jsx";
+import Track from "../../components/Track/Track.jsx";
 import ApiManager from "../../api/ApiManager.js";
 import { useContext, useEffect, useState } from "react";
 import style from "./Album.module.scss";
@@ -47,27 +48,7 @@ export default function Album() {
         <div className="container px-5 mx-auto">
           <ul>
             {album?.tracks?.data?.map((track, index) => (
-              <li className="flex flex-row justify-between items-center my-5 z-0">
-                <div className="flex flex-row justify-start items-center gap-3">
-                  <span
-                    key={index}
-                    className="text-deezer-white w-fit text-nowrap truncate"
-                  >
-                    {track.title}
-                  </span>
-                </div>
-                <div className="flex flex-row justify-end items-center gap-3">
-                  <div
-                    className="like"
-                    onClick={() => {
-                      favouritesCtx.toggleFavourite(track);
-                    }}
-                  >
-                    <img src={favouritesCtx.isFavourite(track) ? "./assets/icons/svg/heart_filled.svg" : "./assets/icons/svg/heart_empty.svg"} alt="" />
-                  </div>
-                  <audio src={track.preview} className="block" controls></audio>
-                </div>
-              </li>
+              <Track index={index} track={track}/>
             ))}
           </ul>
         </div>
