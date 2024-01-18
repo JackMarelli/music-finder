@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import BaseLayout from "../../layouts/Base/BaseLayout.jsx";
 import ApiManager from "../../api/ApiManager.js";
 import { useEffect, useState } from "react";
+import Track from "../../components/Track/Track.jsx";
 
 export default function Results() {
   const location = useLocation();
@@ -32,20 +33,9 @@ export default function Results() {
           <h2 className="text-6xl font-bold text-deezer-white tracking-tight my-16">
             Results for "{query}"
           </h2>
-          <ul>
-            {songs.map((song, index) => (
-              <li className="flex flex-row justify-between items-center my-5 z-0">
-                <div className="flex flex-row justify-start items-center gap-3">
-                  <img src={song.album.cover_small} alt="" className="h-full w-auto object-cover" />
-                  <span className="text-deezer-primary w-fit text-nowrap truncate">
-                    {song.title}
-                  </span>
-                  <Link to={`/album?id=${song.album.id}`} className="text-deezer-white w-fit text-nowrap truncate">
-                    {song.album.title}
-                  </Link>
-                </div>
-                <audio src={song.preview} className="block" controls></audio>
-              </li>
+          <ul className="mt-16">
+            {songs.map((track, index) => (
+              <Track key={index} track={track} showAlbum={true} showCover={true}/>
             ))}
           </ul>
         </div>

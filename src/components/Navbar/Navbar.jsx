@@ -5,9 +5,9 @@ function Navbar() {
   return (
     <nav className="sticky top-0 bg-deezer-black w-full h-fit py-5 border-b border-b-deezer-white z-50">
       <div className="container px-5 mx-auto flex justify-between items-center h-fit">
-        <div className="text-3xl uppercase text-deezer-white font-league">
+        <Link to="/" className="text-3xl uppercase text-deezer-white font-league">
           Music Finder
-        </div>
+        </Link>
         <div>
           <a
             href="#"

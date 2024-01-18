@@ -36,19 +36,18 @@ export default function Album() {
           style={{ backgroundImage: `url(${album?.cover_xl})` }}
           className={`w-full h-[60vh] bg-deezer-black flex flex-col justify-end items-start bg-cover relative`}
         >
-          <h2 className="container px-5 text-6xl font-bold text-deezer-white tracking-tight mx-auto z-40 mb-10">
+          <h2 className="container px-5 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-deezer-white tracking-tight mx-auto z-40">
             {album?.title}
-            {favouritesCtx.favourites.length}
           </h2>
-          <div className="container px-5 text-6xl font-bold text-deezer-gray tracking-tight mx-auto z-40 mb-10">
+          <div className="container px-5 text-6xl font-bold text-deezer-gray tracking-tight mx-auto z-40 mb-16">
             {album?.contributors?.map((c, index) => {})}
           </div>
-          <div className={style.custom_grandient}></div>
+          <div className={style.custom_grandient}></div> 
         </div>
         <div className="container px-5 mx-auto">
-          <ul>
+          <ul className="mt-16">
             {album?.tracks?.data?.map((track, index) => (
-              <Track index={index} track={track}/>
+              <Track key={index} track={track} />
             ))}
           </ul>
         </div>

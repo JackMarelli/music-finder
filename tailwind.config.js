@@ -15,7 +15,11 @@ module.exports = {
       colors: {
         deezer: {
           white: "#FDFCFE",
-          gray: "#555555",
+          gray: {
+            light: "#999999",
+            DEFAULT: "#7777777",
+            dark: "#444444",
+          },
           black: "#0F0D13",
           primary: '#FF0066',
           secondary: '#2C2C2C',
