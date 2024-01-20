@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  useEffect(() => {console.log(searchQuery)}, [searchQuery])
-
   return (
     <>
       <BaseLayout>

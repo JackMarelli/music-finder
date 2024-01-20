@@ -9,10 +9,10 @@ const FavouriteContext = createContext({
 });
 
 export function FavouriteContextProvider(props) {
-  const [userFavourites, setUserFavourites] = useState(localStorage.favourites ? JSON.parse(localStorage.favourites) : []);
+  const [userFavourites, setUserFavourites] = useState(localStorage.getItem("favourites") !== null ? JSON.parse(localStorage.getItem("favourites")) : []);
 
   const isFavourite = (favourite) => {
-    return userFavourites.indexOf(favourite) !== -1;
+    return userFavourites.find((f) => favourite.id === f.id);
   };
 
   const addFavouriteHandler = (favourite) => {
@@ -41,12 +41,11 @@ export function FavouriteContextProvider(props) {
     } else {
       addFavouriteHandler(favourite);
     }
-    //localStorage.favourites = JSON.stringify(userFavourites);
-    console.log(userFavourites);
   };
 
   useEffect(() => {
-    localStorage.favourites = JSON.stringify(userFavourites);
+    console.log(userFavourites);
+    localStorage.setItem("favourites", JSON.stringify(userFavourites));
   }, [userFavourites]);
 
   const context = {
