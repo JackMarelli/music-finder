@@ -12,7 +12,7 @@ export function FavouriteContextProvider(props) {
   const [userFavourites, setUserFavourites] = useState(localStorage.getItem("favourites") !== null ? JSON.parse(localStorage.getItem("favourites")) : []);
 
   const isFavourite = (favourite) => {
-    return userFavourites.find((f) => favourite.id === f.id);
+    return userFavourites.some((f) => favourite.id === f.id);
   };
 
   const addFavouriteHandler = (favourite) => {
